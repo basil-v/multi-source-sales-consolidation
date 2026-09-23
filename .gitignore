@@ -1,0 +1,16 @@
+# Generated data and databases - never commit
+inputs/
+db/
+*.db
+*.xlsx
+*.csv
+
+# Secrets
+.env
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
+.ipynb_checkpoints/
