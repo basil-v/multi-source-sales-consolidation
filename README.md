@@ -6,6 +6,10 @@ database. It is built to mirror a real problem in a multi-entity FMCG group:
 the same commercial question was getting different answers depending on which
 file someone opened.
 
+Built with Python (pandas), SQL and SQLite. One run consolidates ~5,000 rows across Actual, Budget, Forecast and Last Estimate, and computes gross profit at every stage of the value chain.
+
+> **Read the write-up:** [Turning many messy sources into one number everyone trusts](ARTICLE.md) — the story and design decisions behind this pipeline.
+
 > **Note on data:** every name, code and number in this repository is synthetic.
 > `generate_sample_data.py` invents a fictional confectionery group and a small
 > SQLite database that stands in for an ERP, so the whole project runs locally
@@ -36,7 +40,7 @@ cycle. This pipeline replaces that with one repeatable run.
    - pulls Budget and Last Estimate from budget entries
    - pulls an open-order Forecast with `Plan / Tentative / Firm` status
 3. **Classifies everything** against SKU and customer masters (brand, category,
-   channel, region, salesman).
+   channel, region, salesperson).
 4. **Derives cost three ways** — a rolling average output cost, a standard cost
    from the price list, and a nearest-month fallback when a month is missing.
 5. **Builds an intercompany transfer-price value chain** and computes gross
